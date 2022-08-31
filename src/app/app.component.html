@@ -5,14 +5,13 @@
 ></div>
 
 <form>
-  <div *ngFor="let customer of dataSet" title="{{ customer.name }}">
+  <div
+    class="hoverButton"
+    *ngFor="let customer of dataSet"
+    title="{{ customer.name }}"
+    (mouseover)="setChartTypeId(customer.id)"
+  >
     {{ customer.name }}
-    <input
-      type="radio"
-      value="{{ customer.id }}"
-      name="customer"
-      (click)="setChartTypeId(customer.id)"
-    />
   </div>
   {{ chartTypeId }}
 </form>

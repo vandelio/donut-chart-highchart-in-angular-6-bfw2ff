@@ -7,6 +7,7 @@ import { Chart } from 'angular-highcharts';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  updateFlag = false;
   dataSet: any = [
     {
       data: [
@@ -53,7 +54,8 @@ export class AppComponent {
 
   chartTypeId = 0;
   donutChart: any;
-  donut: any = {
+
+  donut: Highcharts.Options = {
     chart: {
       plotBackgroundColor: null,
       plotBorderWidth: 0,
@@ -116,9 +118,12 @@ export class AppComponent {
   };
 
   setChartTypeId(id) {
+    console.log(this.dataSet[id].data);
+    this.updateFlag = true;
     this.donutChart.options.series[1].data = this.dataSet[id].data;
 
-    this.donutChart.options.redraw();
+    this.donutChart = new Chart(this.donut);
+    //this.donutChart.redraw();
   }
 
   ngOnInit() {
