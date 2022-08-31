@@ -94,7 +94,7 @@ export class AppComponent {
       {
         opacity: 0.3,
         type: 'pie',
-        innerSize: '0%',
+        innerSize: '80%',
         size: '100%',
         name: 'line 2',
         dataLabels: {
